@@ -681,7 +681,6 @@ pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
 }
 
 #[cfg(target_os="macos")]
-#[cfg(target_os="android")]
 #[fixed_stack_segment]
 pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
     use opengles::cgl::{CGLGetCurrentContext, CGLGetPixelFormat};
@@ -692,3 +691,13 @@ pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
     }
 }
 
+#[cfg(target_os="android")]
+#[fixed_stack_segment]
+pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
+    //To be implemented
+    unsafe {
+        NativeGraphicsMetadata {
+            dummy: false,
+        }
+    }
+}
