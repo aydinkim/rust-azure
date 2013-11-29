@@ -695,9 +695,10 @@ pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
 #[fixed_stack_segment]
 pub fn current_graphics_metadata() -> NativeGraphicsMetadata {
     //To be implemented
+    use egl::egl::GetCurrentDisplay;
     unsafe {
         NativeGraphicsMetadata {
-            dummy: false,
+            display: GetCurrentDisplay(),
         }
     }
 }
